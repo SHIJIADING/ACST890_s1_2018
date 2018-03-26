@@ -1,0 +1,100 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ri-340\qc\partightenfactor0
+
+\f0\b\fs40 \cf0 ACST890
+\f1 \
+\
+\pard\pardeftab720\ri-340\partightenfactor0
+
+\f0\b0\fs24 \cf0 Question 1:\
+> Fibonacci<-function(n)\{\
++ x=numeric(n)\
++ x[1]=1\
++ x[2]=1\
++ for(i in 3:n)\
++ x[i]=x[i-1]+x[i-2]\
++ return(x)\
++ \}\
+\pard\pardeftab720\ri-340\partightenfactor0
+
+\f1 \cf0 \
+\pard\pardeftab720\ri-340\partightenfactor0
+
+\f0 \cf0 Then if you want the first 10 number \
+Just type \
+> Fibonacci(10)\
+ [1]  1  1  2  3  5  8 13 21 34 55
+\f1 \
+\
+
+\f0 Question 3:\
+a) > setwd("~/Downloads")\
+\pard\pardeftab720\fi220\ri-340\partightenfactor0
+\cf0 > dataset<-read.csv("PersonenSchaden.csv",header = TRUE)\
+\
+\pard\pardeftab720\ri-340\partightenfactor0
+\cf0 b) > summary(dataset$total)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+     10    6297   13854   38367   35123 4485797\
+     > var(dataset$total)\
+    [1] 8277562110\
+     > sd(dataset$total)\
+    [1] 90981.11\
+c) 
+\f1 \
+
+\f0 > hist(dataset$total,breaks = 200,xlab = "dollar values of the claims",main = "Histogram of dollar values of the claims")\
+\pard\pardeftab720\ri-340\partightenfactor0
+
+\f1 \cf0 \
+\pard\pardeftab720\ri-340\partightenfactor0
+
+\f0 \cf0 d) > delay<-dataset$finmonth-dataset$accmonth 
+\f1 \
+
+\f0 > hist(delay,xlab = "Settlement delay",main = "Histogram of settlement delay")
+\f1 \
+\
+
+\f0 e) > h<- hist(dataset$legrep)
+\f1 \
+
+\f0 > h$density=h$counts/sum(h$counts)\
+> plot(h,freq = FALSE,xlab = "legal representation",ylab = "proportion",main = "histogram of the legal representation")\
+ \uc0\u8232 \u8232 \u8232 \u8232 \u8232 \u8232 \u8232 f) > injury<- rbind(dataset$inj1,dataset$inj2,dataset$inj3,dataset$inj4,dataset$inj5)
+\f1 \
+
+\f0 > his<- hist(injury)\
+> his$density=his$counts/sum(his$counts)\
+> plot(his,freq = FALSE,xlab = "injury code",ylab = "proportion",main = "Histogram of injury code")
+\f1 \
+\
+
+\f0 h) > Indollar<- log(dataset$total)\
+> hist(Indollar,xlab = "log dollar values of the claims",main = "histogram of log dollar values of the claims")\
+\pard\pardeftab720\ri-340\partightenfactor0
+
+\f1 \cf0 \uc0\u8232 
+\f0 i)  Claim size against Operational time\
+> plot(dataset$op_time,dataset$total,ylab = "claim size",xlab = "operational time")\
+
+\f1 \
+\pard\pardeftab720\ri-340\partightenfactor0
+
+\f0 \cf0 i) log of Claim size against Operational time\
+> plot(dataset$op_time,dataset$total,ylab = "log claim size",xlab = \'93operational time",col=colour,log = "y")
+\f1 \
+\uc0\u8232 
+\f0 k)\uc0\u8232 > colour<-factor(dataset$legrep,levels = c(0,1),labels = c("blue","yellow"))
+\f1 \
+
+\f0 > plot(dataset$op_time,dataset$total,ylab = "log claim size",xlab = \'93operational time",col=colour,log = "y")\
+\pard\pardeftab720\ri-340\partightenfactor0
+
+\f1 \cf0 \
+}
